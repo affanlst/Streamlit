@@ -25,9 +25,7 @@ def carPrice_page():
     st.title('Prediksi Harga Mobil')
     st.header("Dataset")
     url = "https://github.com/affanlst/streamlit/blob/main/CP.csv"
-    column = ['car_ID','symboling','CarName','fueltype','aspiration','doornumber','carbody','drivewheel','enginelocation','wheelbase','carlength','carwidth','carheight','curbweight','enginetype','cylindernumber','enginesize','fuelsystem','boreratio','stroke','compressionratio','horsepower','peakrpm','citympg','highwaympg','price'
-]
-    df1 = pd.read_csv(url, names=column)
+    df1 = pd.read_csv(url)
     st.dataframe(df1)
 
     st.write("Grafik Highway-mpg")
