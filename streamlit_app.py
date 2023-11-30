@@ -1,13 +1,8 @@
 import pickle
 import streamlit as st
 import pandas as pd
-import os
 import numpy as np
-import altair as alt
 import streamlit as st
-import urllib.request
-from urllib.request import urlopen
-from urllib import request
 
 # Fungsi untuk menampilkan halaman utama
 def main_page():
@@ -22,7 +17,6 @@ def main_page():
 sidebar = st.sidebar.selectbox("Navigasi", ("Home", "Car Price","Bar","About"))
 # 1LMaL6bqqDw0dHZAFlO-fIBqsVkqazpxb
 def carPrice_page():
-    response = request.urlretrieve("https://drive.google.com/uc?export=download&id=1LMaL6bqqDw0dHZAFlO-fIBqsVkqazpxb", "model_prediksi_harga_mobil.sav")
     model = pickle.load(open('model_prediksi_harga_mobil.sav', 'rb'))
     st.title('Prediksi Harga Mobil')
     st.header("Dataset")
