@@ -2,7 +2,6 @@ import pickle
 import streamlit as st
 import pandas as pd
 import os
-import urllib.request
 import numpy as np
 import altair as alt
 import streamlit as st
@@ -23,9 +22,6 @@ def main_page():
 sidebar = st.sidebar.selectbox("Navigasi", ("Home", "Car Price","Bar","About"))
 
 def carPrice_page():
-    url = 'https://github.com/affanlst/streamlit/blob/3a4cdf847aca0871361ca66facb510d50bfae237/model_prediksi_harga_mobil.sav'
-    with urllib.request.urlopen(url) as f:
-        data = pickle.load(open(f),'rb')
     model = pickle.load(open('model_prediksi_harga_mobil.sav', 'rb'))
     st.title('Prediksi Harga Mobil')
 
