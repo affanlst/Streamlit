@@ -4,7 +4,6 @@ import pandas as pd
 import os
 import numpy as np
 import altair as alt
-from urllib.request import urlopen
 import streamlit as st
 
 # Fungsi untuk menampilkan halaman utama
@@ -20,7 +19,7 @@ def main_page():
 sidebar = st.sidebar.selectbox("Navigasi", ("Home", "Car Price","Bar","About"))
 
 def carPrice_page():
-    model = pickle.load(urlopen('https://github.com/affanlst/streamlit/blob/3e562cf996d505f4a529355ffe961c00360a4f73/model_prediksi_harga_mobil.sav', 'rb'))
+    model = pickle.load(open('https://github.com/affanlst/streamlit/blob/3e562cf996d505f4a529355ffe961c00360a4f73/model_prediksi_harga_mobil.sav', 'rb'))
 
     st.title('Prediksi Harga Mobil')
 
