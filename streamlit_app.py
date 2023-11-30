@@ -65,7 +65,7 @@ def about_page():
 if sidebar == "Home":
     main_page()
 elif sidebar == "Car Price":
-    model = pickle.load(open('model_prediksi_harga_mobil.sav', 'rb'))
+    model = pickle.load(open('model.sav', 'rb'))
 
     st.title('Prediksi Harga Mobil')
 
