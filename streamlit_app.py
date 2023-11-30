@@ -26,7 +26,7 @@ def carPrice_page():
     response = urllib.request.urlopen(url)
     data = response.read()
     print(data)
-    model = pickle.load(open(data, 'rb'))
+    model = pickle.load(open(response, 'rb'))
 
     st.title('Prediksi Harga Mobil')
 
