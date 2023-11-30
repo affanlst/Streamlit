@@ -20,13 +20,15 @@ def main_page():
 sidebar = st.sidebar.selectbox("Navigasi", ("Home", "Car Price","Bar","About"))
 
 def carPrice_page():
-    model = pickle.load(open('model_prediksi_harga_mobil.sav', 'rb'))
+    model = pickle.load(open('https://github.com/affanlst/streamlit/blob/main/model_prediksi_harga_mobil.sav', 'rb'))
 
     st.title('Prediksi Harga Mobil')
 
     st.header("Dataset")
-
-    df1 = pd.read_csv('CP.csv')
+    url = "https://github.com/affanlst/streamlit/blob/main/CP.csv"
+    column = ['car_ID','symboling','CarName','fueltype','aspiration','doornumber','carbody','drivewheel','enginelocation','wheelbase','carlength','carwidth','carheight','curbweight','enginetype','cylindernumber','enginesize','fuelsystem','boreratio','stroke','compressionratio','horsepower','peakrpm','citympg','highwaympg','price'
+]
+    df1 = pd.read_csv('CP.csv', names=column)
     st.dataframe(df1)
 
     st.write("Grafik Highway-mpg")
