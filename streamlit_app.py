@@ -27,7 +27,7 @@ def carPrice_page():
     data = response.read()
 
     print(data)
-    model = pickle.load(open('https://github.com/affanlst/streamlit/blob/3e562cf996d505f4a529355ffe961c00360a4f73/model_prediksi_harga_mobil.sav', 'rb'))
+    model = pickle.load(open(data, 'rb'))
 
     st.title('Prediksi Harga Mobil')
 
