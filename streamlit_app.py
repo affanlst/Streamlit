@@ -4,7 +4,7 @@ import pandas as pd
 import os
 import numpy as np
 import altair as alt
-
+from urllib.request import urlopen
 import streamlit as st
 
 # Fungsi untuk menampilkan halaman utama
