@@ -67,7 +67,7 @@ def bar_page():
 def about_page():
     st.markdown("<h1 style='text-align: center;'>About Page</h1>", unsafe_allow_html=True)
     st.subheader("Streamlit Aplication")
-    st.image('logo.svg')
+    st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.svg')
     st.caption("Streamlit adalah sebuah framework open-source yang digunakan untuk membangun antarmuka pengguna (UI) interaktif untuk aplikasi data science. Framework ini dirancang khusus untuk mempermudah pengembangan aplikasi web dengan menggunakan Python.")
 
 if sidebar == "Home":
