@@ -22,7 +22,6 @@ def main_page():
 sidebar = st.sidebar.selectbox("Navigasi", ("Home", "Car Price","Bar","About"))
 # 1LMaL6bqqDw0dHZAFlO-fIBqsVkqazpxb
 def carPrice_page():
-    URL = "https://instagram.com/favicon.ico"
     response = request.urlretrieve("https://drive.google.com/uc?export=download&id=1LMaL6bqqDw0dHZAFlO-fIBqsVkqazpxb", "model_prediksi_harga_mobil.sav")
     model = pickle.load(open('model_prediksi_harga_mobil.sav', 'rb'))
     st.title('Prediksi Harga Mobil')
