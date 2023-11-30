@@ -22,12 +22,7 @@ def main_page():
 sidebar = st.sidebar.selectbox("Navigasi", ("Home", "Car Price","Bar","About"))
 
 def carPrice_page():
-    url = 'https://github.com/affanlst/streamlit/blob/3e562cf996d505f4a529355ffe961c00360a4f73/model_prediksi_harga_mobil.sav'
-    response = urllib.request.urlopen(url)
-    data = response.read()
-    print(data)
-    model = pickle.load(open(response, 'rb'))
-
+    model = pickle.load(open('model_prediksi_harga_mobil.sav', 'rb'))
     st.title('Prediksi Harga Mobil')
 
     st.header("Dataset")
