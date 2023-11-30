@@ -18,10 +18,9 @@ sidebar = st.sidebar.selectbox("Navigasi", ("Home", "Car Price","Bar","About"))
 # 1LMaL6bqqDw0dHZAFlO-fIBqsVkqazpxb
 def carPrice_page():
     model = pickle.load(open('model_prediksi_harga_mobil.sav', 'rb'))
-    st.title('Prediksi Harga Mobil')
+    st.title('Car Price Prediction')
     st.header("Dataset")
-    url = "https://github.com/affanlst/streamlit/blob/main/CP.csv"
-    df1 = pd.read_csv(url)
+    df1 = pd.read_csv('CarPrice.csv')
     st.dataframe(df1)
 
     st.write("Grafik Highway-mpg")
@@ -66,7 +65,39 @@ def about_page():
 if sidebar == "Home":
     main_page()
 elif sidebar == "Car Price":
-    carPrice_page()
+    model = pickle.load(open('model_prediksi_harga_mobil.sav', 'rb'))
+
+    st.title('Prediksi Harga Mobil')
+
+    st.header("Dataset")
+    #open file csv
+    df1 = pd.read_csv('CarPrice.csv')
+    st.dataframe(df1)
+
+    st.write("Grafik Highway-mpg")
+    chart_highwaympg = pd.DataFrame(df1, columns=["highwaympg"])
+    st.line_chart(chart_highwaympg)
+
+    st.write("Grafik curbweight")
+    chart_curbweight = pd.DataFrame(df1, columns=["curbweight"])
+    st.line_chart(chart_curbweight)
+
+    st.write("Grafik horsepower")
+    chart_horsepower = pd.DataFrame(df1, columns=["horsepower"])
+    st.line_chart(chart_horsepower)
+
+    highwaympg = st.number_input('highwaympg:', min_value=0)
+    curbweight = st.number_input('curbweight:', min_value=0)
+    horsepower = st.number_input('horsepower:', min_value=0)
+    if st.button('Prediksi'):
+        car_prediction = model.predict([[highwaympg, curbweight, horsepower]])
+        
+        # convert float to string
+        harga_mobil_str = np.array(car_prediction)
+        harga_mobil_float = float(harga_mobil_str[0][0])
+        harga_mobil_formatted = f'Harga Mobil $ {harga_mobil_float:,.2f}'
+
+        st.write(harga_mobil_formatted)
 elif sidebar == "Bar":
     bar_page()
 elif sidebar == "About":
