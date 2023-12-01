@@ -71,7 +71,7 @@ elif sidebar == "Car Price":
 
     st.header("Dataset")
     #open file csv
-    df1 = pd.read_csv('CarPrice.csv')
+    df1 = pd.read_csv('CP.csv')
     st.dataframe(df1)
 
     st.write("Grafik Highway-mpg")
